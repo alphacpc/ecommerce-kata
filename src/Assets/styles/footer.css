@@ -1,0 +1,57 @@
+.footerContainer{
+        display: flex;
+        height: 40vh;
+        padding: 40px 10%;
+        background-color: aquamarine;
+    }
+    .footerItem{
+        width: 25%;
+        height: 100%;
+    }
+    .footerItem h2{
+        font-size: 35px;
+        line-height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+    .footerItem .column{
+        display: flex;
+        flex-direction: column;
+    }
+    .footerItem .column a,
+    .footerItem .column p{
+        font-size: 20px;
+        padding: 10px;
+        transition: all ease .2s;
+    }
+    .footerItem .column a:hover{
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    
+    .footerItem:nth-child(1) h1{
+        font-size: 60px;
+        margin-bottom: 25px;
+    }
+    .footerItem:nth-child(1) p{
+        font-size: 20px;
+        font-family: "Montserrat-Medium";
+        line-height: 30px;
+    }
+    .footerItem:nth-child(1) div{
+        display: flex;
+    }
+    .footerItem:nth-child(1) .methods-payement{
+        padding: 20px;
+    }
+    .footerItem:nth-child(1) .methods-payement a{
+        margin-right: 20px;
+    }
+    
+    .methods-payement{
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+    }
