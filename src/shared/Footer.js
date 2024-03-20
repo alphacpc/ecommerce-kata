@@ -5,9 +5,9 @@ import "./../Assets/styles/footer.css";
 const Footer = () => {
   return (
       <div className="footerContainer">
-        <div className="footerItem">
+        <div className="footerItem column">
           <h1><Link to="/">kVtV.</Link></h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          <p className="font-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Adipisci reprehenderit ducimus nostrum corrupti officia 
             repellendus, rem rerum quisquam. Fugiat earum, assumenda 
             porro aut cupiditate perspiciatis sequi reiciendis 
@@ -18,7 +18,9 @@ const Footer = () => {
           <h2>Liens</h2>
 
           <div className="column">
-            <Link to="/">Acceuil</Link>
+            <Link to="/">Boutique</Link>
+            <Link to="/">Mon compte</Link>
+            <Link to="/">Les plus vendus</Link>
             <Link to="/">Mon panier</Link>
           </div>
         </div>
@@ -29,6 +31,7 @@ const Footer = () => {
             <Link to="/">Linkedin</Link>
             <Link to="/">Github </Link>
             <Link to="/">Medium </Link>
+            <Link to="/">Youtube </Link>
           </div>
         </div>
 

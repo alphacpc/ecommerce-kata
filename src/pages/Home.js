@@ -51,7 +51,7 @@ const Home = () => {
         
       </aside>
 
-      <main className="div-flex-2 padding-20 div-flex-wrap div-full-width">
+      <main className="div-flex-2 div-flex-wrap div-full-width">
 
       {
         products && products.map((product,ind) => 
