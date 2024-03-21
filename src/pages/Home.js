@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
+import { RiShoppingBasket2Line } from "react-icons/ri";
 // import { Link } from 'react-router-dom';
 
 const montant=444
@@ -11,15 +12,12 @@ const Home = () => {
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
     await setProducts(data.data);
-    console.log(products);
   }
 
   const fetchCategoriesAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products/categories")
     await setCategories(data.data);
   }
-
-  console.log(categories);
 
 
   useEffect(()=>{
@@ -62,7 +60,7 @@ const Home = () => {
               
               <div className="span-price">{product?.price} euro</div>
               
-              <button className="btn btn-full-width padding-10 margin-t20 bg-yellow hover-black">Ajouter au panier</button>
+              <button className="btn btn-full-width padding-10 margin-t20 bg-yellow hover-black"><RiShoppingBasket2Line /> Ajouter au panier</button>
             </div>
             
           </div>
