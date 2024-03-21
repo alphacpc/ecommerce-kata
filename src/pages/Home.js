@@ -4,12 +4,14 @@ import ProductComponent from "../components/ProductComponent";
 import { useSelector} from "react-redux";
 
 
-const montant=444
 
 const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [montant, setMontant] = useState(20);
+  const [minPrice, setMinPrice] = useState(null);
+  const [maxPrice, setMaxPrice] = useState(null);
 
   const cart = useSelector(state => state.cart);
 
@@ -19,6 +21,16 @@ const Home = () => {
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
     await setProducts(data.data);
+
+    if (products.length > 0) {
+      const prices = products.map(product => product.price);
+      const min = Math.min(...prices);
+      const max = Math.max(...prices);
+      await setMinPrice(min);
+      await setMaxPrice(max);
+      console.log(min)
+      console.log(max)
+    }
   }
 
   const fetchCategoriesAPI = async ()=> {
@@ -26,6 +38,9 @@ const Home = () => {
     await setCategories(data.data);
   }
 
+  const handleChangeMontant = (e)=> {
+    setMontant(e.target.value)
+  }
 
   useEffect(()=>{
     fetchProductAPI();
@@ -37,7 +52,7 @@ const Home = () => {
 
   return (
     <section className="section-container section-home div-flex-wrap div-flex-half">
-      <aside className="div-flex-1 padding-20 h-40">
+      <aside className="div-flex-1 padding-20 h-40 div-filter">
         <h2 className="text-2 text-upper text-red">Appliquer des filtres</h2>
         <form className="form-filter" method="post">
 
@@ -59,7 +74,7 @@ const Home = () => {
           </div>
           <div className="margin-t20">
             <h3>Par montant ({montant} euro)</h3>
-            <input className="margin-t20" type="range" min="10" max="100"/>
+            <input onChange={(e) => handleChangeMontant(e)} className="margin-t20" value={montant} type="range" min={minPrice} max={maxPrice}/>
           </div>
         </form>
         

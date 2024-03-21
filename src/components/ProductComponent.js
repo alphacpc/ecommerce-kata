@@ -10,6 +10,7 @@ const ProductComponent = ({ product }) => {
 
         function handleAddToCart() {
           dispatch(addToCart(product));
+          alert(`Produit ${product.title} ajouté avec succès !`)
         }
       
 

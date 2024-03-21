@@ -17,7 +17,6 @@ const CartComponent = ({product, handle}) => {
     }else{
       setCurrentQuantity(currentQuantity-1)
     }
-
     dispatch(updateCart(productId, currentQuantity));
 
   }
@@ -28,7 +27,6 @@ const CartComponent = ({product, handle}) => {
     }else{
       setCurrentQuantity(currentQuantity+1)
     }
-
     dispatch(updateCart(productId, currentQuantity));
 
   }

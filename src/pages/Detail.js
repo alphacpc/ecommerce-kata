@@ -16,6 +16,7 @@ const Detail = () => {
 
   function handleAddToCart() {
     dispatch(addToCart(product));
+    alert(`Produit ${product.title} ajouté avec succès !`)
   }
       
 
@@ -53,7 +54,7 @@ const Detail = () => {
               {product?.price} euro
             </p>
             
-            <div className="margin-v20 div-flex-wr flex-center">
+            <div className="margin-v20 div-flex-wr flex">
               <span className="font-20 margin-r10">{product?.rating?.rate}</span>
               {[1,2,3].map((star,index) => <IoMdStar fill="orangered" className="icon-star" key={index} size={30} />)}
             </div>

@@ -33,7 +33,7 @@ const Footer = () => {
             <LinkIconComponent to="/" icon={AiOutlineShop} text="Boutique" style={link}/>
             <LinkIconComponent to="/" icon={FaRegUser} text="Mon compte" style={link}/>
             <LinkIconComponent to="/" icon={CiShop} text="Les plus vendus" style={link}/>
-            <LinkIconComponent to="/" icon={MdOutlineShoppingCart} text="Mon panier" style={link}/>
+            <LinkIconComponent to="/panier" icon={MdOutlineShoppingCart} text="Mon panier" style={link}/>
           </div>
         </div>
 
