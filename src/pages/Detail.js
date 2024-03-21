@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { IoMdStar } from "react-icons/io";
-import ProductComponent from '../components/ProductComponent';
-import CartComponent from '../components/CartComponent';
 
 const Detail = () => {
 
@@ -12,8 +10,6 @@ const Detail = () => {
     const data = await axios.get("https://fakestoreapi.com/products/1")
     await setProduct(data.data);
   }
-
-  console.log(product);
 
 
   useEffect(()=>{

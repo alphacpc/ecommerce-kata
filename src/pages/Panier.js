@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import { MdOutlineDelete } from "react-icons/md";
 import { IoMdStar } from "react-icons/io";
+import CartComponent from '../components/CartComponent';
 
 
 
@@ -38,25 +39,7 @@ const Panier = () => {
           <div className="divCartItems">    
             { products && products.slice(0,4).map((product, index) => 
                 <div key={index} className='divCartItem'>
-                  <div className="divImageInfo">
-                      <div className='divImage'>
-                          <img src={product.image} alt={`${product.title}`}/>
-                      </div>
-                      <div className='divInfos'>
-                          <h3>{product.title}</h3>
-                          <p>{product.category}</p>
-                          <p>{product?.rating?.rate} <IoMdStar /></p>
-                          <button><MdOutlineDelete /> supprimer</button>
-                      </div>
-                  </div>
-                  <div className="divPriceQuantity">
-                      <div className='productQauntity'>
-                        <span className="action">-</span>
-                        <span className="value">1</span>
-                        <span className="action">+</span>
-                      </div>
-                      <h4 className="div-flex-wrap">{product.price} euro</h4>
-                  </div>
+                  <CartComponent product={product}/>
               </div>
               )
             }
