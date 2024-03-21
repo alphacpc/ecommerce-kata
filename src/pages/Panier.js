@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios';
 import CartComponent from '../components/CartComponent';
 import { useSelector} from "react-redux";
 import { useDispatch } from 'react-redux';
@@ -10,6 +9,8 @@ import { removeFromCart } from './../utils/redux/actions';
 const Panier = () => {
   
   const cart = useSelector(state => state.cart);
+
+  console.log(cart.cart)
 
   const dispatch = useDispatch();
 
