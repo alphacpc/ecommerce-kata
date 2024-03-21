@@ -1,18 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaMediumM } from "react-icons/fa";
 import { RiYoutubeLine } from "react-icons/ri";
-import { GrShop } from "react-icons/gr";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { LuShoppingBag } from "react-icons/lu";
 import { CiShop, CiPhone, CiLocationOn } from "react-icons/ci";
-import { FiPhoneCall } from "react-icons/fi";
-import { HiOutlineLocationMarker } from "react-icons/hi";
 import "./../Assets/styles/footer.css";
 import LinkIconComponent from '../components/LinkIconComponent';
 

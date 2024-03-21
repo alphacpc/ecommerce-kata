@@ -12,11 +12,11 @@ import LinkIconComponent from '../components/LinkIconComponent';
 const Header = () => {
 
   return (
-    <div className="navbarContainer">
-        <div className="divLogoHeader">
+    <div className="navbar-container">
+        <div className="div-logo-header">
             <Link to="/"><span>kVtV.</span></Link>
         </div>
-        <div className="divLinkAuth">
+        <div className="div-link-auth">
             <LinkIconComponent to="/" icon={FiHome} text="Accueil" />
             <LinkIconComponent to="#" icon={AiOutlineShop} text="Boutique" />
             <LinkIconComponent to="/panier" icon={MdOutlineShoppingCart} text="Panier" />
