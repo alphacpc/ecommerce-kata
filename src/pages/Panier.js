@@ -9,7 +9,6 @@ import { removeFromCart } from './../utils/redux/actions';
 
 const Panier = () => {
   
-  const [products, setProducts] = useState([]);
   const cart = useSelector(state => state.cart);
 
   const dispatch = useDispatch();
@@ -18,17 +17,6 @@ const Panier = () => {
     dispatch(removeFromCart(productId));
   }
 
-  console.log(cart.cart)
-
-  const fetchProductAPI = async ()=> {
-    const data = await axios.get("https://fakestoreapi.com/products")
-    await setProducts(data.data);
-  }
-
-
-  useEffect(()=>{
-    fetchProductAPI();
-  },[])
 
 
   return (
@@ -55,7 +43,8 @@ const Panier = () => {
             
           </div>
 
-          <div className="divCartPrices">
+          {
+            cart.cart.length > 0 ? <div className="divCartPrices">
             <h2>Résumé de la Commande</h2>
             <div>
               <div className="shipping-info">
@@ -78,7 +67,11 @@ const Panier = () => {
               <Link to="/commande">Passer la commande</Link>
             </div>
           
+          </div> : <div className="div-empty-panier">
+            <p>Aucun produit sélectionné !</p>
+
           </div>
+          }
         </div>
 
       </div>
