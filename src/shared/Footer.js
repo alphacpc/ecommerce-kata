@@ -12,12 +12,13 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import "./../Assets/styles/footer.css";
+import LinkIconComponent from '../components/LinkIconComponent';
 
 const Footer = () => {
   return (
       <div className="footerContainer">
         <div className="footerItem column">
-          <h1 className="logo"><Link to="/">kVtV.</Link></h1>
+          <h2 className="logo"><Link to="/">kVtV.</Link></h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Adipisci reprehenderit ducimus nostrum corrupti officia 
             repellendus, rem rerum quisquam. Fugiat earum, assumenda 
@@ -26,23 +27,23 @@ const Footer = () => {
         </div>
 
         <div className="footerItem">
-          <h2>Page</h2>
+          <h2>Pages</h2>
 
           <div className="column">
-            <Link to="#"><AiOutlineShop/> Boutique</Link>
-            <Link to="#"><FaRegUser/> Mon compte</Link>
-            <Link to="#"><GrShop /> Les plus vendus</Link>
-            <Link to="/panier"><MdOutlineShoppingCart/> Mon panier</Link>
+            <LinkIconComponent to="/" icon={AiOutlineShop} text="Boutique"/>
+            <LinkIconComponent to="/" icon={FaRegUser} text="Mon compte"/>
+            <LinkIconComponent to="/" icon={GrShop} text="Les plus vendus"/>
+            <LinkIconComponent to="/" icon={MdOutlineShoppingCart} text="Mon panier"/>
           </div>
         </div>
 
         <div className="footerItem">
           <h2>Réseaux sociaux</h2>
           <div className="column">
-            <Link to="/"><FaLinkedinIn/> Linkedin</Link>
-            <Link to="/"><FaGithub/> Github </Link>
-            <Link to="/"><FaMediumM/> Medium </Link>
-            <Link to="/"><RiYoutubeLine/> Youtube </Link>
+            <LinkIconComponent to="/" icon={FaLinkedinIn} text="Linkedin"/>
+            <LinkIconComponent to="/" icon={FaGithub} text="Github"/>
+            <LinkIconComponent to="/" icon={FaMediumM} text="Medium"/>
+            <LinkIconComponent to="/" icon={RiYoutubeLine} text="Youtube"/>
           </div>
         </div>
 

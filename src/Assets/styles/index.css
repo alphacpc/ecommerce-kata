@@ -55,6 +55,14 @@
         margin-left: 10px;
 }
 
+.margin-r10{
+    margin-right: 10px;
+}
+
+.margin-b20{
+    margin-bottom: 20px;
+}
+
 .margin-t20{
         margin-top: 20px;
 }
@@ -65,10 +73,6 @@
 
 .margin-v20{
         margin: 20px 0;
-}
-
-.div-checkbox{
-
 }
 
 .div-product-card{
@@ -120,7 +124,20 @@
 
 .font-20{
         font-size: 20px;
+        line-height: 30px;
 }
+
+.font-h1{
+    font-size: 44px;
+    line-height: 50px;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+
+
 
 .btn{
         border-radius: 5px;
@@ -136,6 +153,12 @@
         color: black;
         transition: all ease 1s;
 }
+
+.bg-red{
+    background-color: #F05;
+    color: #FFF;
+}
+
 
 .bg-yellow:hover{
         background: black;

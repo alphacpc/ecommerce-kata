@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LinkIconComponent = () => {
+const LinkIconComponent = ({to, icon: IconComponent, text }) => {
   return (
-    <div>LinkIconComponent</div>
+    <Link to={to} className="divLinkAuth">
+      {IconComponent && <IconComponent />} {text}
+    </Link>
   )
 }
 

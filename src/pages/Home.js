@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { RiShoppingBasket2Line } from "react-icons/ri";
+import LinkIconComponent from '../components/LinkIconComponent';
+import ProductComponent from '../components/ProductComponent';
 // import { Link } from 'react-router-dom';
 
 const montant=444
@@ -54,15 +56,7 @@ const Home = () => {
       {
         products && products.map((product,ind) => 
           <div className="div-product-card" key={ind}>
-            <img className="img-container" src={`${product?.image}`} alt={product?.title}/>              
-            <div className="div-content-short">
-              <h3 className="text-3">{product?.title}</h3>
-              
-              <div className="span-price">{product?.price} euro</div>
-              
-              <button className="btn btn-full-width padding-10 margin-t20 bg-yellow hover-black"><RiShoppingBasket2Line /> Ajouter au panier</button>
-            </div>
-            
+            <ProductComponent product={product}/>
           </div>
         )
       }
