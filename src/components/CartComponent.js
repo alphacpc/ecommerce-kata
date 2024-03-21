@@ -1,26 +1,36 @@
 import React, {useState} from 'react';
 import { IoMdStar } from 'react-icons/io';
 import { MdOutlineDelete } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import { updateCart } from './../utils/redux/actions';
 
 const CartComponent = ({product, handle}) => {
 
   const [currentQuantity, setCurrentQuantity] = useState(1)
+  const dispatch = useDispatch();
 
-  const handleDecrementer = (e) => {
+
+  const handleDecrementer = (productId) => {
 
     if(currentQuantity <= 1){
       setCurrentQuantity(1)
     }else{
       setCurrentQuantity(currentQuantity-1)
     }
+
+    dispatch(updateCart(productId, currentQuantity));
+
   }
 
-  const handleIncrementer = (e) => {
+  const handleIncrementer = (productId) => {
     if(currentQuantity >= 10){
       setCurrentQuantity(currentQuantity)
     }else{
       setCurrentQuantity(currentQuantity+1)
     }
+
+    dispatch(updateCart(productId, currentQuantity));
+
   }
 
   return (
@@ -42,9 +52,9 @@ const CartComponent = ({product, handle}) => {
       
       <div className="divPriceQuantity">
         <div className='productQauntity'>
-          <span onClick={handleDecrementer} data-product-id={product?.id} data-product-count={product?.rating.count} className="action cursor-pointer">-</span>
+          <span onClick={()=> handleDecrementer(product.id)} data-product-id={product?.id} data-product-count={product?.rating.count} className="action cursor-pointer">-</span>
           <span className="value">{currentQuantity}</span>
-          <span onClick={handleIncrementer} data-product-id={product?.id} data-product-count={product?.rating.count} className="action cursor-pointer">+</span>
+          <span onClick={()=> handleIncrementer(product.id)} data-product-id={product?.id} data-product-count={product?.rating.count} className="action cursor-pointer">+</span>
         </div>
         <h4 className="div-flex-wrap">x {product.price} euro</h4>
       </div>

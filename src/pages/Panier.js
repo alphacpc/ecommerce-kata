@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import CartComponent from '../components/CartComponent';
 import { useSelector} from "react-redux";
@@ -9,6 +9,7 @@ import { removeFromCart } from './../utils/redux/actions';
 const Panier = () => {
   
   const cart = useSelector(state => state.cart);
+  const [total, setTotal] = useState(0);
 
   console.log(cart.cart)
 
@@ -18,6 +19,15 @@ const Panier = () => {
     dispatch(removeFromCart(productId));
   }
 
+
+  useEffect(() => {
+    let somme = 0;
+    for (let product of cart.cart) {
+      let quantity = product.quantity ? product.quantity  : 1
+      somme += quantity * product.price;
+    }
+    setTotal(somme.toFixed(2));
+  }, [cart]);
 
 
   return (
@@ -48,19 +58,10 @@ const Panier = () => {
             cart.cart.length > 0 ? <div className="divCartPrices">
             <h2>Résumé de la Commande</h2>
             <div>
-              <div className="shipping-info">
-                <h4>Sous total</h4>
-                <span>100000 euro</span>
-              </div>
-
-              <div className="shipping-info">
-                <h4>Frais de livraison</h4>
-                <span>1000 euro</span>
-              </div>
 
               <div className="shipping-info total">
                 <h4>Total</h4>
-                <span>110000 euro</span>
+                <span>{total} euro</span>
               </div>
             </div>
 
