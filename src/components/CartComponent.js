@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { IoMdStar } from 'react-icons/io';
 import { MdOutlineDelete } from 'react-icons/md';
 
-const CartComponent = ({product}) => {
+const CartComponent = ({product, handle}) => {
 
   const [currentQuantity, setCurrentQuantity] = useState(1)
 
@@ -36,7 +36,7 @@ const CartComponent = ({product}) => {
           <p className="div-flex-wrap margin-v10">{product?.rating?.rate} 
             {[1,2,3].map((start, index) => <IoMdStar key={index} fill="orangered" size={30} />)}
           </p>
-          <button className="flex border-none cursor-pointer border-r5 bg-red font-20 padding-5"><MdOutlineDelete fill="white" className="margin-r5" /> supprimer</button>
+          <button onClick={() => handle(product.id)}  className="flex border-none cursor-pointer border-r5 bg-red font-20 padding-5"><MdOutlineDelete fill="white" className="margin-r5" /> supprimer</button>
         </div>
       </div>
       

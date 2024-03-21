@@ -1,8 +1,18 @@
 import React from "react";
 import LinkIconComponent from "./LinkIconComponent";
 import { RiShoppingBasket2Line } from "react-icons/ri";
+import { useDispatch } from 'react-redux';
+import { addToCart } from './../utils/redux/actions';
 
 const ProductComponent = ({ product }) => {
+
+        const dispatch = useDispatch();
+
+        function handleAddToCart() {
+          dispatch(addToCart(product));
+        }
+      
+
         return (
                 <>
                         <img className="img-container" src={`${product?.image}`} alt={product?.title} />
@@ -12,7 +22,7 @@ const ProductComponent = ({ product }) => {
                                 </h3>
 
                                 <div className="span-price">{product?.price} euro</div>
-                                <button className="btn btn-full-width padding-10 margin-t20 bg-yellow hover-black">
+                                <button onClick={handleAddToCart} className="btn btn-full-width padding-10 margin-t20 bg-yellow hover-black">
                                         <RiShoppingBasket2Line /> Ajouter au panier
                                 </button>
                         </div>

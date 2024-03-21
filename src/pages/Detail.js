@@ -4,11 +4,20 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { IoMdStar } from "react-icons/io";
 import { RiShoppingBasket2Line } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { addToCart } from './../utils/redux/actions';
 
 const Detail = () => {
 
   const [product, setProduct] = useState({})
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    dispatch(addToCart(product));
+  }
+      
 
   const fetchProductAPI = async ()=> {
     const data = await axios.get(`https://fakestoreapi.com/products/${id}`)
@@ -51,7 +60,7 @@ const Detail = () => {
             
             <p className="margin-b20">Disponibilité : <small>{product?.rating?.count}</small></p>
 
-            <button className="btn btn-full-width padding-20 margin-t20 bg-yellow hover-black">
+            <button onClick={handleAddToCart} className="btn btn-full-width padding-20 margin-t20 bg-yellow hover-black">
               <RiShoppingBasket2Line /> Ajouter au panier
             </button>
           </div>

@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-import { MdOutlineDelete } from "react-icons/md";
-import { IoMdStar } from "react-icons/io";
 import CartComponent from '../components/CartComponent';
-
+import { useSelector} from "react-redux";
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from './../utils/redux/actions';
 
 
 const Panier = () => {
   
   const [products, setProducts] = useState([]);
+  const cart = useSelector(state => state.cart);
+
+  const dispatch = useDispatch();
+
+  function handleRemoveToCart(productId) {
+    dispatch(removeFromCart(productId));
+  }
+
+  console.log(cart.cart)
 
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
@@ -30,16 +39,16 @@ const Panier = () => {
         <div className="divTop">
           <Link to="/">Poursuivre les achats</Link>
           <div>
-            <p><span id="panier">Mon panier</span><sup>(2)</sup></p>
+            <p><span id="panier">Mon panier</span><sup>({cart.cart.length})</sup></p>
           </div>
         </div>
 
 
         <div className="divFlexCart">
           <div className="divCartItems">    
-            { products && products.slice(0,4).map((product, index) => 
+            { cart && cart.cart.map((product, index) => 
                 <div key={index} className='divCartItem'>
-                  <CartComponent product={product}/>
+                  <CartComponent product={product} handle={handleRemoveToCart}/>
               </div>
               )
             }

@@ -1,15 +1,20 @@
-import axios from 'axios';
-import React, {useState, useEffect} from 'react'
-import { RiShoppingBasket2Line } from "react-icons/ri";
-import LinkIconComponent from '../components/LinkIconComponent';
-import ProductComponent from '../components/ProductComponent';
-// import { Link } from 'react-router-dom';
+import axios from "axios";
+import React, {useState, useEffect} from "react";
+import ProductComponent from "../components/ProductComponent";
+import { useSelector} from "react-redux";
+
 
 const montant=444
 
 const Home = () => {
+
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+
+  const cart = useSelector(state => state.cart);
+
+  console.log(cart)
+  
 
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
@@ -26,6 +31,9 @@ const Home = () => {
     fetchProductAPI();
     fetchCategoriesAPI();
   },[])
+
+
+
 
   return (
     <section className="section-container section-home div-flex-wrap div-flex-half">
@@ -58,17 +66,13 @@ const Home = () => {
       </aside>
 
       <main className="div-flex-2 div-flex-wrap div-full-width">
-
-      {
-        products && products.map((product,ind) => 
-          <div className="div-product-card" key={ind}>
-            <ProductComponent product={product}/>
-          </div>
-        )
-      }
-
-      
-
+        {
+          products && products.map((product,ind) => 
+            <div className="div-product-card" key={ind}>
+              <ProductComponent product={product}/>
+            </div>
+          )
+        }
       </main>
     </section>
   )
