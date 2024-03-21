@@ -30,8 +30,14 @@ const Home = () => {
   return (
     <section className="section-container section-home div-flex-wrap div-flex-half">
       <aside className="div-flex-1 padding-20 h-40">
-        <h2 className="text-2 text-upper">Appliquer des filtres</h2>
+        <h2 className="text-2 text-upper text-red">Appliquer des filtres</h2>
         <form className="form-filter" method="post">
+
+          <div className="margin-t20">
+            <h3>Par recherche</h3>
+            <input className="margin-t20 padding-5 width-full border-none outline-none" type="text" placeholder="Nom du produit"/>
+          </div>
+
           <div className="margin-v20">
             <h3>Par categories</h3>
             {

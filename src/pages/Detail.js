@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+
 import axios from "axios";
 import { IoMdStar } from "react-icons/io";
+import { RiShoppingBasket2Line } from 'react-icons/ri';
 
 const Detail = () => {
 
   const [product, setProduct] = useState({})
+  const { id } = useParams();
 
   const fetchProductAPI = async ()=> {
-    const data = await axios.get("https://fakestoreapi.com/products/1")
+    const data = await axios.get(`https://fakestoreapi.com/products/${id}`)
     await setProduct(data.data);
   }
 
@@ -21,7 +25,7 @@ const Detail = () => {
 
       {
         product && <section className="section-container section-single-product div-flex-wrap">
-          <div className="div-flex-1">
+          <div className="div-flex-1 center padding-t50">
             <img className="img-container" src={`${product?.image}`} alt={product?.title}/>              
           </div>
 
@@ -46,6 +50,10 @@ const Detail = () => {
             </div>
             
             <p className="margin-b20">Disponibilité : <small>{product?.rating?.count}</small></p>
+
+            <button className="btn btn-full-width padding-20 margin-t20 bg-yellow hover-black">
+              <RiShoppingBasket2Line /> Ajouter au panier
+            </button>
           </div>
         </section>
       }
