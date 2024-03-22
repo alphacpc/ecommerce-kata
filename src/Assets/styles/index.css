@@ -266,16 +266,7 @@
 
 
 /*  CART */
-#message{
-        background: #14C38E;
-        text-align: center;
-        padding: 5px;
-        display: none;
-    }
-    #message p{
-        color: #fff;
-        font-size: 15px;
-    }
+
     
     .divContentCart{
         padding: 100px 10%;

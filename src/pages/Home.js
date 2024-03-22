@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import ProductComponent from "../components/ProductComponent";
-import { useSelector} from "react-redux";
 
 
 
@@ -9,17 +8,15 @@ const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [montant, setMontant] = useState(100);
   const [minPrice, setMinPrice] = useState(null);
   const [maxPrice, setMaxPrice] = useState(null);
 
-  const cart = useSelector(state => state.cart);
-
-  console.log(cart)
-  
-
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
+    await setFilteredProducts(data.data);
     await setProducts(data.data);
     
   }
@@ -33,6 +30,20 @@ const Home = () => {
     setMontant(e.target.value)
   }
 
+  const handleChangeSearch = (e) => {
+    
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    const filtered = products.filter(product =>
+      product.title.toLowerCase().includes(term.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+
+    console.log(filteredProducts)
+
+  }
+
   useEffect(()=>{
     fetchProductAPI();
     fetchCategoriesAPI();
@@ -43,7 +54,7 @@ const Home = () => {
       setMaxPrice(Math.max(...prices));
     }
 
-  },[products])
+  },[])
 
 
 
@@ -56,7 +67,7 @@ const Home = () => {
 
           <div className="margin-t20">
             <h3>Par recherche</h3>
-            <input className="margin-t20 padding-5 width-full border-none outline-none" type="text" placeholder="Nom du produit"/>
+            <input onChange={(e) => handleChangeSearch(e)} className="margin-t20 padding-5 width-full border-none outline-none" type="text" placeholder="Nom du produit"/>
           </div>
 
           <div className="margin-v20">
@@ -65,7 +76,7 @@ const Home = () => {
               categories && categories.map((category, ind) => 
                 <div key={ind} className="div-checkbox margin-v20">
                   <input type="checkbox" id={category}/>
-                  <label className="font-20 margin-l10 text-upper" labelFor={category}>{category}</label>
+                  <label className="font-20 margin-l10 text-upper" labelfor={category}>{category}</label>
                 </div>
               )
             }
@@ -80,7 +91,7 @@ const Home = () => {
 
       <main className="div-flex-2 div-flex-wrap div-full-width">
         {
-          products && products.map((product,ind) => 
+          filteredProducts && filteredProducts.map((product,ind) => 
             <div className="div-product-card" key={ind}>
               <ProductComponent product={product}/>
             </div>
