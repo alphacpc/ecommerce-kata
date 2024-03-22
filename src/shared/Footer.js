@@ -30,20 +30,20 @@ const Footer = () => {
         <div className="footer-item">
           <h2 className="text-white text-upper text-2 margin-b20">Pages</h2>
           <div className="flex-column padding-10">
-            <LinkIconComponent to="/" icon={AiOutlineShop} text="Boutique" style={link}/>
-            <LinkIconComponent to="/" icon={FaRegUser} text="Mon compte" style={link}/>
-            <LinkIconComponent to="/" icon={CiShop} text="Les plus vendus" style={link}/>
-            <LinkIconComponent to="/panier" icon={MdOutlineShoppingCart} text="Mon panier" style={link}/>
+            <LinkIconComponent to="/" icon={AiOutlineShop} text="Boutique" design={link}/>
+            <LinkIconComponent to="/" icon={FaRegUser} text="Mon compte" design={link}/>
+            <LinkIconComponent to="/" icon={CiShop} text="Les plus vendus" design={link}/>
+            <LinkIconComponent to="/panier" icon={MdOutlineShoppingCart} text="Mon panier" design={link}/>
           </div>
         </div>
 
         <div className="footer-item">
           <h2 className="text-white text-upper text-2 margin-b20">Réseaux sociaux</h2>
           <div className="flex-column padding-10">
-            <LinkIconComponent to="/" icon={FaLinkedinIn} text="Linkedin" style={link}/>
-            <LinkIconComponent to="/" icon={FaGithub} text="Github" style={link}/>
-            <LinkIconComponent to="/" icon={FaMediumM} text="Medium" style={link}/>
-            <LinkIconComponent to="/" icon={RiYoutubeLine} text="Youtube" style={link}/>
+            <LinkIconComponent to="https://www.linkedin.com/in/alpha-amadou-diallo/" target={true} icon={FaLinkedinIn} text="Linkedin" design={link}/>
+            <LinkIconComponent to="https://github.com/alphacpc" target={true} icon={FaGithub} text="Github" design={link}/>
+            <LinkIconComponent to="https://medium.com/@alphacpc" target={true} icon={FaMediumM} text="Medium" design={link}/>
+            <LinkIconComponent to="https://www.youtube.com/@phonse444" target={true} icon={RiYoutubeLine} text="Youtube" design={link}/>
           </div>
         </div>
 
