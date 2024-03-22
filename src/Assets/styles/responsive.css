@@ -99,4 +99,84 @@
 
 /* Styles pour les écrans de petite taille (smartphones) */
 @media only screen and (max-width: 600px) {
+
+        /* SECTION FILTER */
+        .div-filter{
+                height: auto;
+                margin-bottom: 20px;
+                margin-right: 0;
+        }
+
+        h2.text-upper.text-red{
+                font-size: 25px;
+                line-height: 35px;
+        }
+
+        .div-product-card{
+                flex: 1 0 calc(100%);
+                margin: 0;
+                margin-bottom: 20px;
+        }
+
+
+        /* SECTION FOOTER */
+        .footer-container{
+                padding: 20px 5%;
+                height: auto;
+        }
+
+        .footer-container .footer-item{
+                flex: 1 0 calc(100%);
+        }
+
+        /* DIV NAVBAR */
+        .navbar-container{
+                display: flex;
+                flex-direction: column !important;
+                height: 15vh;
+                justify-content: space-around;
+        }
+
+        .navbar-container .div-link-auth{
+                display: flex;
+                width: 100%;
+        }
+
+        .navbar-container .div-link-auth a{
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+        }
+
+        .navbar-container .div-link-auth a:first-child{
+                display: none;
+        }
+
+        /* SECTION DETAIL PRODUCT */
+        .section-single-product{
+                flex-direction: column;
+        }
+
+
+        /* SECTION PANIER */
+        .divFlexCart{
+                display: flex;
+                flex-direction: column;
+        }
+
+        .divCartItem{
+                margin-right: 0;
+                flex-direction: column;
+        }
+
+        .divCartItem .divImageInfo{
+                margin-bottom: 20px;
+                flex-direction: column;
+        }
+
+        .divCartPrices h2{
+                font-size: 25px;
+        }
+
+
 }
