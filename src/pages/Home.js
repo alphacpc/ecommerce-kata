@@ -9,7 +9,7 @@ const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [montant, setMontant] = useState(20);
+  const [montant, setMontant] = useState(100);
   const [minPrice, setMinPrice] = useState(null);
   const [maxPrice, setMaxPrice] = useState(null);
 
@@ -21,16 +21,7 @@ const Home = () => {
   const fetchProductAPI = async ()=> {
     const data = await axios.get("https://fakestoreapi.com/products")
     await setProducts(data.data);
-
-    if (products.length > 0) {
-      const prices = products.map(product => product.price);
-      const min = Math.min(...prices);
-      const max = Math.max(...prices);
-      await setMinPrice(min);
-      await setMaxPrice(max);
-      console.log(min)
-      console.log(max)
-    }
+    
   }
 
   const fetchCategoriesAPI = async ()=> {
@@ -45,7 +36,14 @@ const Home = () => {
   useEffect(()=>{
     fetchProductAPI();
     fetchCategoriesAPI();
-  },[])
+
+    if (products.length > 0) {
+      const prices = products.map(product => product.price);
+      setMinPrice(Math.min(...prices));
+      setMaxPrice(Math.max(...prices));
+    }
+
+  },[products])
 
 
 

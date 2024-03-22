@@ -4,14 +4,97 @@
                 padding: 50px 5%;
         }
 
+        /* CARD PRODUCT */
+
         .div-product-card{
                 flex: 1 0 calc(90% - 20px);
         }
 
+
+        /* SECTION FILTER */
         .div-filter{
                 height: 70vh;
         }
+
+        aside.div-filter{
+                margin-right: 0px;
+        }
+
+        h2.text-upper.text-red{
+                font-size: 20px;
+                line-height: 30px;
+        }
+
+        .form-filter h3{
+                font-size: 18px;
+        }
+
+        .form-filter label{
+                font-size: 10px;
+        }
+
+        /* DIV NAVBAR */
+        .navbar-container .div-link-auth a{
+                font-size: 20px;
+        }
+
+        /* SECTION FOOTER */
+        .footer-container{
+                padding: 20px 5%;
+                height: auto;
+                flex-wrap: wrap;
+        }
+
+        .footer-container .footer-item{
+                flex: 1 0 calc(50% - 20px);
+                margin-bottom: 40px;
+        }
+
+        .footer-container .footer-item:last-child p{
+                font-size: 20px;
+        }
+
+
+        /* SECTION DETAIL PRODUCT */
+        .section-single-product{
+                flex-direction: column;
+        }
+
+        .section-single-product .div-flex-1.padding-20{
+                padding-bottom: 50px;
+        }
+
+        .section-single-product .div-flex-1.padding-20 p.font-20,
+        .section-single-product .div-flex-1.padding-20 span.font-20{
+                font-size: 20px;
+        }
+
+
+        /* SECTION PANIER */
+        .divFlexCart{
+                display: flex;
+                flex-direction: column;
+        }    
+        
+        .divCartItem{
+                margin-right: 0;
+                flex-direction: column;
+        }
+
+        .divCartItem:nth-child(2n) .divImageInfo{
+                margin-bottom: 40px;
+        }
+
+        .divCartItem button.cursor-pointer.flex{
+                font-size: 20px;
+        }
+
+
+
 }
+
+
+
 
 
 /* Styles pour les écrans de petite taille (smartphones) */

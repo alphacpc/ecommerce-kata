@@ -1,7 +1,6 @@
-import React from 'react'
-import Header from '../shared/Header'
-import Footer from '../shared/Footer'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 
 const Error = () => {
   return (
