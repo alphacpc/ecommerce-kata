@@ -20,15 +20,17 @@ const Detail = () => {
   }
       
 
-  const fetchProductAPI = async ()=> {
-    const data = await axios.get(`https://fakestoreapi.com/products/${id}`)
-    await setProduct(data.data);
-  }
+
 
 
   useEffect(()=>{
+    const fetchProductAPI = async ()=> {
+      const data = await axios.get(`https://fakestoreapi.com/products/${id}`)
+      await setProduct(data.data);
+    }
+
     fetchProductAPI();
-  },[])
+  })
 
   return (
     <div className="singleContainer">
