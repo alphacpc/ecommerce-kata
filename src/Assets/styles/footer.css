@@ -1,0 +1,20 @@
+.footer-container {
+  height: 40vh;
+  padding: 40px 10%;
+  background-color: #555843;
+  color: #FFF !important;
+}
+
+.footer-item {
+  width: 25%;
+  height: 100%;
+}
+
+.flex-column svg{
+  fill: #FFF;
+}
+
+
+
+
+
