@@ -8,7 +8,7 @@ const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [montant, setMontant] = useState(100);
   const [minPrice, setMinPrice] = useState(null);
@@ -40,21 +40,33 @@ const Home = () => {
     );
     setFilteredProducts(filtered);
 
-    console.log(filteredProducts)
-
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchProductAPI();
     fetchCategoriesAPI();
-
+  }, []);
+  
+  useEffect(() => {
     if (filteredProducts.length > 0) {
       const prices = filteredProducts.map(product => product.price);
       setMinPrice(Math.min(...prices));
       setMaxPrice(Math.max(...prices));
     }
+  }, [filteredProducts]);
 
-  },[])
+
+  // useEffect(()=>{
+  //   fetchProductAPI();
+  //   fetchCategoriesAPI();
+
+  //   if (filteredProducts.length > 0) {
+  //     const prices = filteredProducts.map(product => product.price);
+  //     setMinPrice(Math.min(...prices));
+  //     setMaxPrice(Math.max(...prices));
+  //   }
+  
+  // },[filteredProducts])
 
 
 

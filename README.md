@@ -18,6 +18,7 @@ Récupérer et afficher une liste de produits à partir de l'API Fake Store (`ht
 - Rechercher un produit par son nom
 
 
+
 ### `Prerequis`
 - *git >> 2.40*
 - *nodejs >> 18.19*
@@ -50,6 +51,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ![Tous mes categories](./src/Assets/images/capture2.png)
 <br></br>
 
+#### Responsive OK
 
 ### `Limite de l'application`
 - Check endpoind : **detail/:id** Not OK, en cas de id inexistant
