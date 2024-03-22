@@ -48,8 +48,8 @@ const Home = () => {
     fetchProductAPI();
     fetchCategoriesAPI();
 
-    if (products.length > 0) {
-      const prices = products.map(product => product.price);
+    if (filteredProducts.length > 0) {
+      const prices = filteredProducts.map(product => product.price);
       setMinPrice(Math.min(...prices));
       setMaxPrice(Math.max(...prices));
     }
